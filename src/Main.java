@@ -1,8 +1,7 @@
+import com.sun.tools.attach.VirtualMachine;
+
 import java.io.*;
 import java.net.*;
-import java.util.Scanner;
-import java.util.stream.Stream;
-
 
 public class Main {
     public static void main(String[] args) {
@@ -11,22 +10,33 @@ public class Main {
         int  x = scanner.nextInt();*/
 
         Socket socket=new Socket();
+        System.getenv();
+        System.out.println();
+        var p=System.getenv();
+        VirtualMachine.attach("")
+        System.out.println(p);
+
+
+
 
 
         try {
-            Inet4Address inet4Address= (Inet4Address) InetAddress.getByName("google.com");
-
-
+            Inet4Address inet4Address = (Inet4Address) InetAddress.getByName("google.com");
 
 
 //            for(var x:NetworkInterface.networkInterfaces().toArray()){
 //                System.out.println(x);
 //            }
 
-            var x=NetworkInterface.getByIndex(1).getInetAddresses();
+            var x = NetworkInterface.getByIndex(1).getInetAddresses();
 
 
-            System.out.println();
+
+
+
+
+
+
 
 
 
@@ -39,4 +49,5 @@ public class Main {
         }
 
     }
+
 }
