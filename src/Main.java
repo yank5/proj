@@ -1,7 +1,6 @@
-import com.sun.tools.attach.VirtualMachine;
-
 import java.io.*;
 import java.net.*;
+import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,12 +8,34 @@ public class Main {
         Scanner scanner=new Scanner(System.in);
         int  x = scanner.nextInt();*/
 
-        Socket socket=new Socket();
-        System.getenv();
-        System.out.println();
-        var p=System.getenv();
-        VirtualMachine.attach("")
-        System.out.println(p);
+//        Socket socket=new Socket();
+        Properties z=System.getProperties();
+
+
+
+
+
+
+
+
+
+//        for(var p:z.keySet()){
+//            System.out.print(p+" : ");
+//            System.out.println(z.get(p));
+//        }
+
+
+
+//        var p=System.getenv();
+//
+//
+//
+//        for(var o:p.keySet()){
+//
+//            System.out.print(o+" : ");
+//            System.out.println(p.get(o));
+//        }
+
 
 
 
