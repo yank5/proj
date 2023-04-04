@@ -3,26 +3,44 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 import java.util.List;
+import com.googlecode.lanterna.*;
+import com.googlecode.lanterna.bundle.LanternaThemes;
+import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.screen.TerminalScreen;
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
+import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.*;
+import com.googlecode.lanterna.terminal.virtual.DefaultVirtualTerminal;
 
-public class Main  {
-    public static void main(String[] args) {
-        System.out.println("test port number (or test all ports -1)");
-        Scanner scanner=new Scanner(System.in);
-         int m= scanner.nextInt();
+import static com.googlecode.lanterna.TextColor.ANSI.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+//        System.out.println("test port number (or test all ports -1)");
+//        Scanner scanner=new Scanner(System.in);
+//         int m= scanner.nextInt();
 
 //        Socket socket=new Socket();
 
-//
+        DefaultTerminalFactory defaultTerminalFactory=new DefaultTerminalFactory();
+        Terminal terminal=defaultTerminalFactory.createTerminal();
+        TextGraphics textGraphics = terminal.newTextGraphics();
+        textGraphics.setBackgroundColor(RED);
+        textGraphics.putString(1,1,"");
+        textGraphics.fill('1');
+
+
+
 //        System.out.println("\u001b[48;5;244m"+"test");
-        System.out.print("\u001b[?5h");
+//        System.out.print("\u001b[?5h");
 
 
 
-        while(true){
-            System.out.print("\u001b[?5h");
-            var r=scanner.next();
-            System.out.print("\u001b[?5l");
-        }
+//        while(true){
+//            System.out.print("\u001b[?5h");
+//            var r=scanner.next();
+//            System.out.print("\u001b[?5l");
+//        }
 
 
 //        var xx=java.util.UUID.randomUUID();
