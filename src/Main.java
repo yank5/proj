@@ -1,18 +1,27 @@
 import java.awt.*;
+import java.awt.image.BaseMultiResolutionImage;
+import java.awt.image.Kernel;
 import java.io.*;
 import java.net.*;
+import java.nio.channels.DatagramChannel;
 import java.util.*;
 import java.util.List;
 import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.bundle.LanternaThemes;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
+import com.googlecode.lanterna.screen.VirtualScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.*;
+import com.googlecode.lanterna.terminal.swing.TerminalEmulatorDeviceConfiguration;
 import com.googlecode.lanterna.terminal.virtual.DefaultVirtualTerminal;
 
+import javax.imageio.ImageIO;
+
 import static com.googlecode.lanterna.TextColor.ANSI.*;
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -22,12 +31,19 @@ public class Main {
 
 //        Socket socket=new Socket();
 
-        DefaultTerminalFactory defaultTerminalFactory=new DefaultTerminalFactory();
-        Terminal terminal=defaultTerminalFactory.createTerminal();
-        TextGraphics textGraphics = terminal.newTextGraphics();
-        textGraphics.setBackgroundColor(RED);
-        textGraphics.putString(1,1,"");
-        textGraphics.fill('1');
+        Terminal terminal=new DefaultTerminalFactory().createTerminal();
+        DatagramSocket datagramSocket=new DatagramSocket();
+        DatagramPacket datagramPacket=new DatagramPacket(new byte[]{1,2},1);
+        System.out.println("DatagramChannel.open().isConnected() = " + DatagramChannel.open().isConnected());
+
+
+//        TextGraphics textGraphics = terminal.newTextGraphics();
+
+
+
+//        textGraphics.setBackgroundColor(RED);
+//        textGraphics.putString(1,1,"");
+//        textGraphics.fill(' ');
 
 
 
