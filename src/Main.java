@@ -1,22 +1,43 @@
 import java.awt.*;
+import java.awt.desktop.AppEvent;
+import java.awt.desktop.ScreenSleepEvent;
+import java.awt.desktop.ScreenSleepListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BaseMultiResolutionImage;
 import java.awt.image.Kernel;
+import java.beans.Encoder;
 import java.io.*;
 import java.net.*;
+import java.net.http.WebSocket;
 import java.nio.channels.DatagramChannel;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
+
 import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.bundle.LanternaThemes;
+import com.googlecode.lanterna.graphics.BasicTextImage;
+import com.googlecode.lanterna.graphics.DelegatingTheme;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.graphics.TextImage;
+import com.googlecode.lanterna.input.InputDecoder;
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
+import com.googlecode.lanterna.screen.ScreenBuffer;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.screen.VirtualScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
+import com.googlecode.lanterna.terminal.SimpleTerminalResizeListener;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.*;
+import com.googlecode.lanterna.terminal.TerminalFactory;
 import com.googlecode.lanterna.terminal.swing.TerminalEmulatorDeviceConfiguration;
 import com.googlecode.lanterna.terminal.virtual.DefaultVirtualTerminal;
+import com.sun.net.httpserver.HttpsServer;
 
 import javax.imageio.ImageIO;
 
@@ -24,7 +45,7 @@ import static com.googlecode.lanterna.TextColor.ANSI.*;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 //        System.out.println("test port number (or test all ports -1)");
 //        Scanner scanner=new Scanner(System.in);
 //         int m= scanner.nextInt();
@@ -32,9 +53,16 @@ public class Main {
 //        Socket socket=new Socket();
 
         Terminal terminal=new DefaultTerminalFactory().createTerminal();
-        DatagramSocket datagramSocket=new DatagramSocket();
-        DatagramPacket datagramPacket=new DatagramPacket(new byte[]{1,2},1);
-        System.out.println("DatagramChannel.open().isConnected() = " + DatagramChannel.open().isConnected());
+
+        while (true){
+            System.out.println(terminal.readInput());
+            TimeUnit.MILLISECONDS.sleep(100);
+        }
+
+
+//        DatagramSocket datagramSocket=new DatagramSocket();
+//        DatagramPacket datagramPacket=new DatagramPacket(new byte[]{1,2},1);
+//        System.out.println("DatagramChannel.open().isConnected() = " + DatagramChannel.open().isConnected());
 
 
 //        TextGraphics textGraphics = terminal.newTextGraphics();
